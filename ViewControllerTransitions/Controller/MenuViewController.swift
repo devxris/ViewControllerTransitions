@@ -26,6 +26,7 @@ class MenuViewController: UIViewController {
 	
 	let slideDownAnimator = SlideDownAnimator()
 	let slideRightAnimtor = SlideRightAnimator()
+	let popAnimtor = PopAnimator()
 	
 	// MARK: Navigation
 	
@@ -38,6 +39,7 @@ class MenuViewController: UIViewController {
 		switch selectedindexPaths[0].row {
 		case 0 : toViewController.transitioningDelegate = slideDownAnimator
 		case 1 : toViewController.transitioningDelegate = slideRightAnimtor
+		case 2 : toViewController.transitioningDelegate = popAnimtor
 		default : break
 		}
 	}
