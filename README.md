@@ -27,3 +27,4 @@ Transition Steps
 2. Slide down transition  (background view will slide alone with)  
 3. Slide right transition (background view will stay at same position)  
 4. Pop transition
+5. Rotataion transition
