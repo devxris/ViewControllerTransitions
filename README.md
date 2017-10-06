@@ -16,7 +16,7 @@ Transition Steps
             // Set up the transform will be used in the animation  
             // Make the toView off screen  
             // Add both fromView and toView to the containerView  
-	    // Perform the animation
+	    // Perform the animation  
 	    // Complete transition
       }  
     d. assign destination ViewController's transitioningDelegate to animator
