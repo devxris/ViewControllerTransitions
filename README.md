@@ -2,7 +2,7 @@
 UIKit: ViewControllers Animation Transitions
 
 Transition Steps
-   <br />a. Create an animator    
+   a. Create an animator    
    b. conforms to UIViewControllerTransitioningDelegate    
       b-1. func animationController(forPresented:_, presenting:_, source:_) -> UIViewControllerAnimatedTransitioning? {  
 		     return self }    
@@ -20,6 +20,7 @@ Transition Steps
 	    // Complete transition
       }  
     d. assign target ViewController's transitioningDelegate to animator
+    e. note: if reverse, roles of toView and fromView will flip
   
   
 1. Slide up transition: Default present modally segue  
