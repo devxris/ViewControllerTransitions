@@ -23,6 +23,22 @@ class MenuViewController: UIViewController {
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		collectionView.reloadData()
 	}
+	
+	let slideDownAnimator = SlideDownAnimator()
+	
+	// MARK: Navigation
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		let toViewController = segue.destination
+		let sourceViewController = segue.source as! MenuViewController
+		
+		guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
+		switch selectedindexPaths[0].row {
+		case 0 : toViewController.transitioningDelegate = slideDownAnimator
+		default : break
+		}
+	}
 }
 
 extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
