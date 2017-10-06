@@ -60,6 +60,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="u2v-hK-WAH" id="4Qx-x5-itQ"/>
                                             <outlet property="titleLabel" destination="aY6-Ja-LzV" id="fjg-nf-JSY"/>
+                                            <segue destination="c7o-7v-qrA" kind="presentation" id="kqR-hf-oLd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -83,6 +84,45 @@
             </objects>
             <point key="canvasLocation" x="920.79999999999995" y="-40.64039408866995"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vVX-Kz-hlw">
+            <objects>
+                <viewController id="c7o-7v-qrA" customClass="DetailViewController" customModule="ViewControllerTransitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gA0-RA-A5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-3" translatesAutoresizingMaskIntoConstraints="NO" id="rNf-TE-4YT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaF-Dh-et1">
+                                <rect key="frame" x="16" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CFt-Qv-nyK"/>
+                                    <constraint firstAttribute="width" constant="30" id="mW2-av-ZZY"/>
+                                </constraints>
+                                <state key="normal" image="cross37"/>
+                                <connections>
+                                    <action selector="close:" destination="c7o-7v-qrA" eventType="touchUpInside" id="aio-gY-lGp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rNf-TE-4YT" secondAttribute="trailing" id="7zN-Fo-gz1"/>
+                            <constraint firstItem="rNf-TE-4YT" firstAttribute="leading" secondItem="gA0-RA-A5Z" secondAttribute="leading" id="8Iv-uw-fXm"/>
+                            <constraint firstItem="UaF-Dh-et1" firstAttribute="top" secondItem="1n8-bz-T9k" secondAttribute="top" id="H6i-E5-LfF"/>
+                            <constraint firstItem="UaF-Dh-et1" firstAttribute="leading" secondItem="1n8-bz-T9k" secondAttribute="leading" constant="16" id="lfU-mf-ee0"/>
+                            <constraint firstItem="rNf-TE-4YT" firstAttribute="top" secondItem="gA0-RA-A5Z" secondAttribute="top" id="nai-XT-ddz"/>
+                            <constraint firstAttribute="bottom" secondItem="rNf-TE-4YT" secondAttribute="bottom" id="qxd-LU-tad"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1n8-bz-T9k"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ek7-Nn-L7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="-41.379310344827587"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xEt-SZ-5Wg">
             <objects>
@@ -102,4 +142,8 @@
             <point key="canvasLocation" x="209.59999999999999" y="-39.90147783251232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cross37" width="512" height="512"/>
+        <image name="img-3" width="1900" height="1267"/>
+    </resources>
 </document>
