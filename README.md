@@ -25,4 +25,4 @@ Transition Steps
   
 1. Slide up transition: Default present modally segue  
 2. Slide down transition  
-
+3. Slide right transition
