@@ -23,6 +23,7 @@ Transition Steps
     e. note: if reverse, roles of toView and fromView will flip
   
   
-1. Slide up transition: Default present modally segue  
-2. Slide down transition  
-3. Slide right transition
+1. Slide up transition: Default present modally segue   
+2. Slide down transition  (background view will slide alone with)  
+3. Slide right transition (background view will stay at same position)  
+4. Pop transition
