@@ -19,7 +19,7 @@ Transition Steps
 	    // Perform the animation
 	    // Complete transition
       }  
-    d. assign target ViewController's transitioningDelegate to animator
+    d. assign destination ViewController's transitioningDelegate to animator
     e. note: if reverse, roles of toView and fromView will flip
   
   
