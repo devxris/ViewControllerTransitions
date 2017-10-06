@@ -1,5 +1,5 @@
 //
-//  SlideDownAnimator.swift
+//  SlideRightAnimator.swift
 //  ViewControllerTransitions
 //
 //  Created by Chris Huang on 06/10/2017.
@@ -8,29 +8,27 @@
 
 import UIKit
 
-class SlideDownAnimator: NSObject {
+class SlideRightAnimator: NSObject {
 	
 	let duration = 0.5
 	var isPresenting = false
 }
 
-extension SlideDownAnimator: UIViewControllerTransitioningDelegate {
+extension SlideRightAnimator: UIViewControllerTransitioningDelegate {
 	
-	// present non-interactive viewController transitioning
 	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		isPresenting = true
 		return self
 	}
 	
-	// dismiss non-interactive viewController transitioning
 	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		isPresenting = false
 		return self
 	}
-	
 }
 
-extension SlideDownAnimator: UIViewControllerAnimatedTransitioning {
+extension SlideRightAnimator: UIViewControllerAnimatedTransitioning {
+	
 	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return duration
 	}
@@ -42,33 +40,29 @@ extension SlideDownAnimator: UIViewControllerAnimatedTransitioning {
 		guard let toView = transitionContext.view(forKey: .to) else { return }
 		let containerView = transitionContext.containerView
 		
-		// Set up the transform we'll use in the animation
-		let offScreenUp = CGAffineTransform(translationX: 0, y: -containerView.frame.height)
-		let offScreenDown = CGAffineTransform(translationX: 0, y: containerView.frame.height)
+		// Set up the transform will be used in the animation
+		let offScreenLeft = CGAffineTransform(translationX: -containerView.frame.width, y: 0)
 		
 		// Make the toView off screen
 		if isPresenting {
-			toView.transform = offScreenUp
+			toView.transform = offScreenLeft
 		}
 		
-		// Add both views to the container view
-		containerView.addSubview(fromView)
-		containerView.addSubview(toView)
+		// Add both fromView and toView to the containerView
+		if isPresenting {
+			containerView.addSubview(fromView)
+			containerView.addSubview(toView)
+		} else {
+			containerView.addSubview(toView)
+			containerView.addSubview(fromView)
+		}
 		
 		// Perform the animation
 		UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [], animations: {
-			// forward animation
 			if self.isPresenting {
-				fromView.transform = offScreenDown
-				fromView.alpha = 0.5
 				toView.transform = CGAffineTransform.identity
-			// reverse animation
 			} else {
-				fromView.transform = offScreenUp
-				fromView.alpha = 1.0
-				toView.transform = CGAffineTransform.identity
-				toView.alpha = 1.0
+				fromView.transform = offScreenLeft
 			}
-		}) { (finished) in transitionContext.completeTransition(finished) }
-	}
+		}) { (finished) in transitionContext.completeTransition(finished) } }
 }

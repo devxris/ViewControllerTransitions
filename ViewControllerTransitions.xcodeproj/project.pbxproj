@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4550720A1F876C3000050329 /* SlideDownAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455072091F876C3000050329 /* SlideDownAnimator.swift */; };
+		4550720C1F8777E600050329 /* SlideRightAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550720B1F8777E600050329 /* SlideRightAnimator.swift */; };
 		459A94DF1F875F3C00C00B99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A94DE1F875F3C00C00B99 /* AppDelegate.swift */; };
 		459A94E11F875F3C00C00B99 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A94E01F875F3C00C00B99 /* MenuViewController.swift */; };
 		459A94E41F875F3C00C00B99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 459A94E21F875F3C00C00B99 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		455072091F876C3000050329 /* SlideDownAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDownAnimator.swift; sourceTree = "<group>"; };
+		4550720B1F8777E600050329 /* SlideRightAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRightAnimator.swift; sourceTree = "<group>"; };
 		459A94DB1F875F3C00C00B99 /* ViewControllerTransitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewControllerTransitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459A94DE1F875F3C00C00B99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		459A94E01F875F3C00C00B99 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				455072091F876C3000050329 /* SlideDownAnimator.swift */,
+				4550720B1F8777E600050329 /* SlideRightAnimator.swift */,
 			);
 			path = TransitionAnimators;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				459A94E11F875F3C00C00B99 /* MenuViewController.swift in Sources */,
+				4550720C1F8777E600050329 /* SlideRightAnimator.swift in Sources */,
 				459A94DF1F875F3C00C00B99 /* AppDelegate.swift in Sources */,
 				459A94F41F87625B00C00B99 /* MenuCell.swift in Sources */,
 				459A94F61F87671200C00B99 /* DetailViewController.swift in Sources */,

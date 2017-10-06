@@ -25,6 +25,7 @@ class MenuViewController: UIViewController {
 	}
 	
 	let slideDownAnimator = SlideDownAnimator()
+	let slideRightAnimtor = SlideRightAnimator()
 	
 	// MARK: Navigation
 	
@@ -36,6 +37,7 @@ class MenuViewController: UIViewController {
 		guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
 		switch selectedindexPaths[0].row {
 		case 0 : toViewController.transitioningDelegate = slideDownAnimator
+		case 1 : toViewController.transitioningDelegate = slideRightAnimtor
 		default : break
 		}
 	}
