@@ -27,19 +27,20 @@ class MenuViewController: UIViewController {
 	let slideDownAnimator = SlideDownAnimator()
 	let slideRightAnimtor = SlideRightAnimator()
 	let popAnimtor = PopAnimator()
+	let rotateAnimator = RotateAnimator()
 	
 	// MARK: Navigation
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		
 		let toViewController = segue.destination
-		let sourceViewController = segue.source as! MenuViewController
 		
 		guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
 		switch selectedindexPaths[0].row {
 		case 0 : toViewController.transitioningDelegate = slideDownAnimator
 		case 1 : toViewController.transitioningDelegate = slideRightAnimtor
 		case 2 : toViewController.transitioningDelegate = popAnimtor
+		case 3 : toViewController.transitioningDelegate = rotateAnimator
 		default : break
 		}
 	}
