@@ -2,7 +2,7 @@
 UIKit: ViewControllers Animation Transitions
 
 Transition Steps  
-   a. Create an animator    
+	a. Create an animator    
    b. conforms to UIViewControllerTransitioningDelegate    
       b-1. func animationController(forPresented:_, presenting:_, source:_) -> UIViewControllerAnimatedTransitioning? {  
 		     return self }    
