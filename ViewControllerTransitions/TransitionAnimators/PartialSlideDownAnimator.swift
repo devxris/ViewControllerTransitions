@@ -8,11 +8,21 @@
 
 import UIKit
 
+@objc protocol PartialSlideDownAnimatorDelegate { func dismiss() }
+
 class PartialSlideDownAnimator: NSObject {
 	
 	let duration = 0.5
 	var isPresenting = false
-	var snapshot: UIView?
+	var snapshot: UIView? {
+		didSet {
+			// add tap to dismiss to snapshot by protocol
+			guard let delegate = delegate else { return }
+			let tap = UITapGestureRecognizer(target: delegate, action: #selector(delegate.dismiss))
+			snapshot?.addGestureRecognizer(tap)
+		}
+	}
+	var delegate: PartialSlideDownAnimatorDelegate?
 }
 
 extension PartialSlideDownAnimator: UIViewControllerTransitioningDelegate {

@@ -46,13 +46,23 @@ class MenuViewController: UIViewController {
 			default : break
 			}
 		} else if segue.identifier == "PartialSlideDown" {
+			guard let infoViewController = toViewController as? InfoTableViewController else { return }
+			if let prompt = navigationItem.prompt { infoViewController.currentItem = prompt }
+			
 			toViewController.transitioningDelegate = partialSlideDownAnimator
+			partialSlideDownAnimator.delegate = self
 		}
 	}
 	
 	@IBAction func unwindFromInfo(segue: UIStoryboardSegue) {
 		guard let sourceController = segue.source as? InfoTableViewController else { return }
 		navigationItem.prompt = sourceController.currentItem
+	}
+}
+
+extension MenuViewController: PartialSlideDownAnimatorDelegate {
+	func dismiss() {
+		dismiss(animated: true, completion: nil)
 	}
 }
 
