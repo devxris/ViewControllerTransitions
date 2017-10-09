@@ -5,10 +5,58 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Info Table View Controller-->
+        <scene sceneID="c1j-xd-dgV">
+            <objects>
+                <tableViewController id="9K5-9L-0cs" customClass="InfoTableViewController" customModule="ViewControllerTransitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="55v-C5-eXE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="141" id="TS8-jV-6ew" customClass="InfoCell" customModule="ViewControllerTransitions" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="141"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TS8-jV-6ew" id="SdV-EC-BaN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-vf-fIg">
+                                            <rect key="frame" x="8" y="101" width="68" height="32"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="a1E-vf-fIg" secondAttribute="bottom" id="4uI-Rn-jLg"/>
+                                        <constraint firstItem="a1E-vf-fIg" firstAttribute="leading" secondItem="SdV-EC-BaN" secondAttribute="leadingMargin" id="AlB-d4-syp"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a1E-vf-fIg" secondAttribute="trailingMargin" id="OqP-BV-uNm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="titleLabel" destination="a1E-vf-fIg" id="ASB-y3-vlw"/>
+                                    <segue destination="NJv-IG-OjV" kind="unwind" unwindAction="unwindFromInfoWithSegue:" id="Zjg-tR-pMM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9K5-9L-0cs" id="DlQ-dC-kRG"/>
+                            <outlet property="delegate" destination="9K5-9L-0cs" id="c5d-Xe-F8R"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWD-Pe-8SA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NJv-IG-OjV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="-721"/>
+        </scene>
         <!--Transitions-->
         <scene sceneID="RjL-lw-4kB">
             <objects>
@@ -60,7 +108,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="u2v-hK-WAH" id="4Qx-x5-itQ"/>
                                             <outlet property="titleLabel" destination="aY6-Ja-LzV" id="fjg-nf-JSY"/>
-                                            <segue destination="c7o-7v-qrA" kind="presentation" id="kqR-hf-oLd"/>
+                                            <segue destination="c7o-7v-qrA" kind="presentation" identifier="ShowDetail" id="kqR-hf-oLd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -75,7 +123,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="boI-aD-htn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Transitions" id="Lj5-9r-wsg"/>
+                    <navigationItem key="navigationItem" title="Transitions" id="Lj5-9r-wsg">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="LDv-6j-6Qc">
+                            <connections>
+                                <segue destination="9K5-9L-0cs" kind="presentation" identifier="PartialSlideDown" id="a85-U6-eNH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Cba-9u-Tz5" id="M29-O3-bIt"/>
                     </connections>
@@ -145,5 +199,6 @@
     <resources>
         <image name="cross37" width="512" height="512"/>
         <image name="img-3" width="1900" height="1267"/>
+        <image name="menu" width="22" height="22"/>
     </resources>
 </document>

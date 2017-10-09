@@ -33,16 +33,26 @@ class MenuViewController: UIViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		
-		let toViewController = segue.destination
-		
-		guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
-		switch selectedindexPaths[0].row {
-		case 0 : toViewController.transitioningDelegate = slideDownAnimator
-		case 1 : toViewController.transitioningDelegate = slideRightAnimtor
-		case 2 : toViewController.transitioningDelegate = popAnimtor
-		case 3 : toViewController.transitioningDelegate = rotateAnimator
-		default : break
+		if segue.identifier == "ShowDetail" {
+			
+			let toViewController = segue.destination
+			
+			guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
+			switch selectedindexPaths[0].row {
+			case 0 : toViewController.transitioningDelegate = slideDownAnimator
+			case 1 : toViewController.transitioningDelegate = slideRightAnimtor
+			case 2 : toViewController.transitioningDelegate = popAnimtor
+			case 3 : toViewController.transitioningDelegate = rotateAnimator
+			default : break
+			}
+		} else if segue.identifier == "PartialSlideDown" {
+			
 		}
+	}
+	
+	@IBAction func unwindFromInfo(segue: UIStoryboardSegue) {
+		guard let sourceController = segue.source as? InfoTableViewController else { return }
+		navigationItem.prompt = sourceController.currentItem
 	}
 }
 
