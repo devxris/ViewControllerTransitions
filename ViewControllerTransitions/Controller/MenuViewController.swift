@@ -28,15 +28,15 @@ class MenuViewController: UIViewController {
 	let slideRightAnimtor = SlideRightAnimator()
 	let popAnimtor = PopAnimator()
 	let rotateAnimator = RotateAnimator()
+	let partialSlideDownAnimator = PartialSlideDownAnimator()
 	
 	// MARK: Navigation
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		
+		let toViewController = segue.destination
+		
 		if segue.identifier == "ShowDetail" {
-			
-			let toViewController = segue.destination
-			
 			guard let selectedindexPaths = collectionView.indexPathsForSelectedItems else { return }
 			switch selectedindexPaths[0].row {
 			case 0 : toViewController.transitioningDelegate = slideDownAnimator
@@ -46,7 +46,7 @@ class MenuViewController: UIViewController {
 			default : break
 			}
 		} else if segue.identifier == "PartialSlideDown" {
-			
+			toViewController.transitioningDelegate = partialSlideDownAnimator
 		}
 	}
 	
